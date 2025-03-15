@@ -1,0 +1,183 @@
+1.
+  # Linear va Logisitc regression modellari=> 
+1).Ikkisi ham SUPERVISED LEARNING modellari, 
+2).Ikkisi ham xususiyatga asoslangan. 
+
+Linear regression - xususiyatlarga asosolanib, raqamli natijani hosil qiladi (raqamli)
+misol: 
+input: uy maydoni,xonalar soni,joylashuv
+output: uy narxi
+
+y = b0 + b1 * x1 + b2 * x2 + ...
+y=target
+x=xususiyatlar
+b=koefsientlar ( har bir xususiyatning target qiymatni predict qilishda o‘ziga xos ta'sirini bildiradi )
+
+logistic regression - xususiyatlarga asoslanib klasslarni aniqlash (klass)
+
+misol: 
+input: Email matni, uzunligi, so'zlar soni
+output: 0,1
+
+p = 1 / (1 + exp(-z))
+
+
+ 3). Har ikkisi chiziqli model
+Chiziqli model - ma'lumotlarni o'rtasidagi chiziqli aloqani o'rganishga asoslangan modeldir. chiziqli modellar simple linear regression (y = b0 + b1 * x) va multiple linear regression (y = b0 + b1 * x1 + b2 * x2 + ... + bn * xn) kabi modellarni o'z ichiga oladi.
+
+Chiziqli modelda asosiy maqsad - bir yoki bir nechta xususiyatlar yordamida natijani bashorat qilishdir. bu modelda chiziqli aloqalar mavjud.
+
+ no-linear modellarni qo'llashdan maqsad - ma'lumotlar orasidagi no-chiziqli(chiziqdan chiqadigan) aloqalarni modellashtirishdir. No-linear modellar chiziqli modellarni cheklovlarini yengib, yanada murakkab va real hayotdagi aloqalarni ifodalash mumkin.Xususiyatlar orasidagi murakkab o'zaro ta'sirlarni aniqlash: no-linear modellar bu o'zaro ta'sirlarni modelda inobatga olish imkonini beradi.
+
+no-linear modellar:
+ 
+svm(support vector Machines)=> no-linear modellarda kernels yordamida ma'lumotlarni yuqori o'lchamli fazoga loyihalashtirib, chiziqli bo'lmagan masalalarni hal qilish imkonini beradi      
+
+decision trees=>decision trees ma'lumotlarni sodda va intutiv (chuqur fikrlamasdan va tahlil qilmasdan turib, uni sezgilar orqali his etish, olgan tajribalari asosida o'rganish) tarzda ajratib beradi.Ular xususiyatlar orasida no-chiziqli aloqalarni aniqlashda juda samarali
+
+random forests=>bu bir nechta decision tree ni birlashtirib ensemble model
+
+neural networks=>neural networks juda murakkab no-chiziqli aloqalarni o'rganishda juda samarali.Bu modellar ko'plab qatlamlar va parametrlar bilan ishlaydi va juda yuqori aniqlikni ta'minlaydi
+
+chiziqli modellar : faqat to'g'ri chiziqli aloqalar, oddiy va tez o'rganiladi, ba'zi hollarda kamroq  aniqlik beradi, Oddiy, kichik va chiziqli ma'lumotlar, oddiy regression, chiziqli klassifikatsiya
+
+no-linear modellar: chiziqli bo'lmagan aloqalar, murakkab va ko'p qatlamli parametrli, yuqori aniqlik, ko'proq imkoniyatlar, murakkab , katta va no-chiziqli ma'lumotlar, klassifikatsiya , regression, tasniflash
+
+
+2.
+ # KLIB 
+1.Qisqa kod orqali ummumiy missing_valueslarni tozalab ketish
+2.Duplicated elementlarni tozalash
+3.Dataset hajmini kamaytirish
+
+kod:
+
+klib.data_cleaning() = missing values
+
+drop.duplicated() = duplicated satrlarni tozalash
+
+klib.reduce_memory_usage() = dataset hajmini kamaytirish
+
+3. 
+#Structured va unstructured datasetlarning farqi ?
+
+Structured dataset (strukturaviy ma'lumotlar) => bu qat'iy formatda (jadval ko'rinishida) saqlangan, ustun (column) va qator (row)larga ega bo'lgan, ma'nosi aniq bo'lgan ma'lumotlar.
+
+Xususiyatlari:
+1).har bir ustun o'zining aniq nomi va turiga ega (masalan: int , float, datetime)
+2).SQL,Exel,CSV yoki DataFrame formatida bo'ladi
+3).Machine Learning modellariga oson joylashtiriladi
+
+Unstructured Dataset (Nostrukturaviy ma'lumotlar)=> bu jadval ko'rinishida bo'lmagan , belgilangan formatga ega bo'lmagan ma'lumotlardir.Bu turdagi ma'lumotlarni to'g'ridan-to'g'ri analiz qilish qiyin, avval preprocessing talab qiladi
+
+Xususiyatlari:
+
+Ma'lumotlar xohlagan shaklda bo'ladi: matn, rasm, audio, video
+
+Har doim ustun-qator strukturaga ega emas
+
+Machine learning ishlatish uchun ko'p tozalash va xususiyatlar chiqarish talab etiladi
+
+Misollar:
+
+1).YouTubedagi videolar (frame extraction : videoni rasmga bo'lib olish, audio extraction:ovozni ajratish, Speech-to-text: matnga aylantirish, Feature extraction: yuzni aniqlash, hissiyotni aniqlash, subtitirlar tahlili)
+2).Instagram rasmlari	
+3).pdf hujjatlar
+4).sensor yozuvlari
+5).Matnli hujjatlar (e-mail, yangiliklar, tweetlar)	
+
+
+4.
+#Ternary conditionals => if-esle ning bir qator kod qilib yozish holati
+
+sintaksisi:
+
+qiymat_to'g'ri_bo'lsa_print if holat else qiymat_to'g'ri_bo'lsa_print
+
+5.
+#Decision tree va Random Forest farqlari va o'xshash tomonlari
+
+Decision Tree : 
+
+yakkalik (bitta daraxt)
+bitta qaror  daraxti
+overfitting yuqori
+aniqlik pastroq(shovqinlik  ma'lumotlarga sezgir)
+model tezligi tezroq
+izohlanishi juda oson vizualizatsiya mumkin
+
+Random Forest:
+
+Ensemble model(ko'p daraxtlar birgalikda)
+
+Ko'plab daraxtlar (tasodifiy tuzilgan) = > tasodifiy tanlash daraxtlar ichida turlicha qarashlar .  bu nima uchun kerak har bir daraxt biroz boshqacha ma'lumot ko'radi, boshqa xususiyatlarga asoslanadi, ya'ni turlicha qaror qabul qiladi. shularning barchasini birlashtirsak (ensemble), yakuniy qaror ancha barqaror, to'g'ri va generalizable bo'ladi
+
+Overfitting kamroq bagging orqali kamayadi
+
+6.
+#Ensemble => bir nechta modelni birlaashtirib,yanada aniq va barqaror natija olish
+
+Misol: 
+Random forest => bir nechta decision treelarni birlashtirib, natijani  chiqarish
+
+7.
+#Mutable => ichidagi qiymatlarni o'zgartirish mumkin bo'lgan obyekt
+
+misol:
+
+dictionary, list,set(duplicated elementlardan faqat bittasini oladi)
+
+Immutable =>obyekt tuzilgandan so'ng uning qiymatini o'zgartirib bo'lmaydi
+
+misol:
+
+int,float,str,tuple
+
+8.
+#Listga istalgan joyiga element qo'shish :
+
+1).insert() = > istalgan joyiga qo'shish
+my_list.insert(index,element)
+
+2).append() = > ro'yxat oxiriga qo'shish
+my_list.append(element)
+
+3).extend() = >bir nechta element qo'shish
+my_list.extend([element,element])
+
+9.
+#Dictionaryga kalit qiymatni ko'rsatish orqali qiymat qo'shamiz
+
+dict[key] = value
+
+key = unique yagona bo'lishi kerak , chunki key yagona bo'lmasa boshqa qiymatga ta'siri bo'ladi
+
+10.
+#Dictionary, list, set mutable (o'zgaruvchan ma'lumot turlari)
+
+int, str,float, boolean,tuple immutable (o'zgartirib bo'lmas ma'lumot turlari)
+
+
+yangi bilim:
+
+#ML Flexible:
+
+Flexible model — bu modellarning holatga moslashuvchanligi. Bu turli xil ma’lumotlarga tez moslasha oladigan va **murakkab patterns (andazalar)**ni aniqlay oladigan model degani.
+
+Bu modelning moslashuvchanligi agar modelning moslashuvchanligi oz bo'lsa chiziqli, o'rtacha bo'lsa decision tree, kuchli bo'lsa neural networkda qo'llaniladi
+
+#Binning bu uzluksiz qiymatlarni category qiymatlarga o'tkazish
+
+Binning regression modeldan classification mdoelga o'tishda qo'llaniladi
+Lebelencoding ko'p hollarda classificationdan regressionga o'tishda qo'llaniladi
+
+NIMA UCHUN ZARUR:
+ma'lumotdan guruh yoki sinf ajratish kerak bo'lsa 
+
+1. Narxlarni tahlil qilish:
+Regression: uyning narxi = 243,000$
+Bizga kerak: bu qimmat, o‘rtacha, yoki arzon uy
+
+1).Classification modeli interpretatsiya qilishda osonroq(qaror qabul qilishda)
+2).Ayrim modellar faqat klassifikatsiya uchun ishlaydi
+3).Threshold (qaror qabul qilishdagi chegara qiymat) belgilash orqali qaror chiqarish uchun
